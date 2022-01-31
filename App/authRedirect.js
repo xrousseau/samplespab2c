@@ -25,8 +25,9 @@ myMSALObj.handleRedirectPromise()
 
 
 function setAccount(account) {
+    console.log(account);
     accountId = account.homeAccountId;
-    username = account.username;
+    username = account.idTokenClaims.given_name;
     welcomeUser(username);
 }
 

@@ -6,8 +6,10 @@ let accountId = "";
 let username = "";
 
 function setAccount(account) {
+    debugger;
     accountId = account.homeAccountId;
-    username = account.username;
+    //username = account.username;
+    username = account.idTokenClaims.given_name
     welcomeUser(username);
 }
 
@@ -16,7 +18,6 @@ function selectAccount() {
      * See here for more info on account retrieval: 
      * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
      */
-
     const currentAccounts = myMSALObj.getAllAccounts();
 
     if (currentAccounts.length < 1) {
@@ -77,7 +78,7 @@ function signIn() {
      * You can pass a custom request object below. This will override the initial configuration. For more information, visit:
      * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/request-response-object.md#request
      */
-
+    debugger;
     myMSALObj.loginPopup(loginRequest)
         .then(handleResponse)
         .catch(error => {
@@ -106,6 +107,7 @@ function getTokenPopup(request) {
     * See here for more information on account retrieval: 
     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
     */
+    debugger;
     request.account = myMSALObj.getAccountByHomeId(accountId);
 
 

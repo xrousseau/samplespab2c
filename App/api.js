@@ -2,7 +2,7 @@ function callApi(endpoint, token) {
     
     const headers = new Headers();
     const bearer = `Bearer ${token}`;
-  
+    debugger;
     headers.append("Authorization", bearer);
   
     const options = {
